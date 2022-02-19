@@ -13,7 +13,7 @@ function App() {
         };
         console.log(username);
         axios
-            .post(`http://localhost:3444/meeting`, data)
+            .post(`http://localhost:3666/meeting`, data)
             .then((response) => {
                 let URL =
                     response.data.join_url.replaceAll(
@@ -27,47 +27,25 @@ function App() {
     };
     return (
         <div className="App">
-            <header className="App-header">
-                {/* <Student /> */}
+            <header className="header ">
                 <h1>Zoom Meeting</h1>
-                <div className="card">
-                    <h5>
-                        Name&nbsp;&nbsp;
-                        <input
-                            type="text"
-                            name="name"
-                            style={{
-                                width: "300px",
-                                borderRadius: "5px",
-                                padding: "8px 12px",
-                                fontSize: "18px",
-                            }}
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </h5>
-
-                    <div className="" style={{ margin: "10px" }}>
-                        <div className="">
-                            <div
-                                className=""
-                                style={{ margin: "10px", marginTop: "120px" }}
-                            >
-                                <button
-                                    className="btn btn-info"
-                                    style={{
-                                        width: "290px",
-                                        height: "80px",
-                                        fontSize: "20px",
-                                        fontFamily: "cursive",
-                                    }}
-                                    onClick={zoomMeeting}
-                                >
-                                    Create Meeting
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div className="main">
+                    <input
+                        type="text"
+                        placeholder="Enter Name"
+                        name="name"
+                        style={{
+                            width: "300px",
+                            borderRadius: "5px",
+                            padding: "8px 12px",
+                            fontSize: "20px",
+                        }}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <button className="btn btn-form" onClick={zoomMeeting}>
+                        Join Meeting
+                    </button>
                 </div>
             </header>
         </div>
